@@ -1,0 +1,40 @@
+body{
+
+	#FFFFFF;
+	font-family: Palatino, Garamond, Times New Roman;
+}
+
+#container{
+	background-color: white;
+	width: 800px;
+	margin-left:  auto;
+	margin-right: auto;
+}
+
+#content{
+	padding: 10px ;
+	margin: 50px;
+
+}
+
+#navigation{
+	width: 180px;
+	float: left;
+	margin: 50px;
+}
+
+#main{
+	width: 600px;
+	float: right;
+	margin: 50px;
+}
+#header{
+	background-color: #D6EAF8;
+	color: white;
+	text-align: center;
+}
+
+#footer{
+	clear: both;
+	text-align: center;
+}
