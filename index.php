@@ -12,6 +12,9 @@ $email = "";
 if (isset($_SESSION["email_preset"])) {
 	$email = $_SESSION["email_preset"];
 }
+
+require_once "Dao.php";
+$dao = new Dao();
 ?>
 
 
@@ -51,14 +54,19 @@ if (isset($_SESSION["email_preset"])) {
 
 			<div id="main">
 
-				<p> This is about schools in the treasure valley. Leave your review of Boise State.
-				Login to leave a comment. </p>
+				<p> Leave your review of Boise State.
+				 </p>
 
 				<?php
 				if (isset($_SESSION["status"])) {
 					echo "<div id='status'>" .  $_SESSION["status"] . "</div>";
 					unset($_SESSION["status"]);
 				}
+
+				// echo "Hello";
+				// echo $conn = getConnection();
+				// echo "Goodbye";
+				//echo "Table exists:" ;//. //tableExists ($conn, 'user');
 				?>
 
 

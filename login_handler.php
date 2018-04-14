@@ -2,9 +2,15 @@
 // login_handler.php
 session_start();
 
+
+// set values pass from form in index.php
+
+$email = $_POST['email'];
+$password = $_POST['password'];
+
 // For simplification Lets pretend I got these login credentials from an SQL table.
-if ("c@gmail.com" == $_POST["email"] &&
-    "lol" == $_POST["password"]) {
+if ("ckennington@gmail.com" == $_POST["email"] &&
+    "lollipop" == $_POST["password"]) {
   $_SESSION["access_granted"] = true;
   header("Location:granted.php");
 
@@ -16,4 +22,5 @@ if ("c@gmail.com" == $_POST["email"] &&
 
   header("Location:index.php");
 }
+
 ?>

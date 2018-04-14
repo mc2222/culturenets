@@ -93,4 +93,18 @@ if (isset($_SESSION["email_preset"])) {
 </body>
 
 
+// // For simplification Lets pretend I got these login credentials from an SQL table.
+if ("c@gmail.com" == $_POST["email"] &&
+    "lol" == $_POST["password"]) {
+
+
+} else {
+  $status = "Invalid username or password";
+  $_SESSION["status"] = $status;
+  $_SESSION["email_preset"] = $_POST["email"];
+  $_SESSION["access_granted"] = false;
+
+  header("Location:index.php");
+}
+
 </html>

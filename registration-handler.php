@@ -1,14 +1,10 @@
 <?php
 session_start();
 // Extract all the variables from the $_POST superglobal array.
-$fullName = $_POST['fullName'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 $password_match = $_POST['password_match'];
 $errors = array();
-if(!valid_length($fullName, 1, 50)) {
-	$errors['fullName'] = "Full name is required. Must be less than 50 characters.";
-}
 if(!valid_length($email, 1, 50)) {
 	$errors['email'] = "Email is required. Must be less than 50 characters.";
 } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -19,6 +15,25 @@ if(!valid_length($password, 10, 128)) {
 } else if($password != $password_match) {
 	$errors['password_match'] = "Passwords do not match.";
 }
+
+
+require_once "Dao.php";
+
+  if (isset($_POST["Register"])) {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    try {
+      $dao = new Dao();
+      $dao->saveUser($email, $password);
+    } catch (Exception $e) {
+      var_dump($e);
+      die;
+    }
+   }
+
+
+
+
 function valid_length($field, $min, $max) {
 	$trimmed = trim($field);
 	return (strlen($trimmed) >= $min && strlen($trimmed) <= $max);
