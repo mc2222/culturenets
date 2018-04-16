@@ -1,6 +1,8 @@
 <?php
 // granted.php
 session_start();
+require_once "Dao.php";
+$dao = new Dao();
 
 if (isset($_SESSION["access_granted"]) && !$_SESSION["access_granted"] ||
 	!isset($_SESSION["access_granted"])) {
@@ -10,8 +12,7 @@ header("Location:index.php");
 
 echo "ACCESS GRANTED";
 
-require_once "Dao.php";
-$dao = new Dao();
+
 
 
 ?>
