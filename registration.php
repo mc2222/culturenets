@@ -31,10 +31,12 @@ function clearErrors() {
 <html>
 <head>
 	<title>CS401/516: Forms, Sanitation, and Validation</title>
-	<link href="style.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
+	<div id="registrationdiv">
 <section>
+	
 	<form method="POST" action="registration-handler.php" autocomplete="off">
 		<fieldset>
 		<legend>Registration</legend>
@@ -61,7 +63,9 @@ function clearErrors() {
 		<input type="submit" value="Register">
 		</fieldset>
 	</form>
+	
 </section>
+</div>
 </body>
 </html>
 <?php clearErrors(); ?>

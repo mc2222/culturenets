@@ -1,4 +1,5 @@
 <?php
+session_start();
 // handler.php
 // handle comment posts, saving to MySQL and redirecting back to the list
 require_once "Dao.php";
@@ -14,4 +15,7 @@ require_once "Dao.php";
       die;
     }
    }
-  header("Location:index.php");
+  header("Location:granted.php");
+
+exit();
+?>

@@ -22,6 +22,7 @@ $dao = new Dao();
 
 <head>
 	<title>CultureNETS</title>
+	<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
 </head>
@@ -44,17 +45,18 @@ $dao = new Dao();
 		<div id="content">
 			<div id="navigation">
 				<ul>
-					<li><a class="selected" href="">Home</a></li>
+					<li><a href="index.php">Home</a></li>
+					<li><a class="selected" href="ajaxexample.html">Location Finder</a></li>
 					<li><a href="registration.php">Registration</a></li>
 
-					<a href="http://google.com">Google link to get started</a>
+					<li><a href="http://google.com">Link to Google</a></li>
 					<li><a href="">Contact</a></li>
 				</ul>
 			</div>
 
 			<div id="main">
 
-				<p> Leave your review of Boise State.
+				<p> Leave your review.
 				 </p>
 
 				<?php

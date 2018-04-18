@@ -3,6 +3,7 @@
 session_start();
 require_once "Dao.php";
 $dao = new Dao();
+$comments = $dao->getComments();
 
 if (isset($_SESSION["access_granted"]) && !$_SESSION["access_granted"] ||
 	!isset($_SESSION["access_granted"])) {
@@ -12,16 +13,13 @@ header("Location:index.php");
 
 echo "ACCESS GRANTED";
 
-
-
-
 ?>
 
 <html>
 
 <head>
 	<title>CultureNETS</title>
-	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="style2.css" />
 	<link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
 </head>
 
@@ -41,9 +39,9 @@ echo "ACCESS GRANTED";
 		<div id="content">
 			<div id="navigation">
 				<ul>
-					<li><a class="selected" href="">Home</a></li>
-					<li><a href="">About</a></li>
-					<li><a href="">Contact</a></li>
+					<li><a href="index.php">Home</a></li>
+					<li><a class="selected" href="ajaxexample.html">Location Finder</a></li>
+					<li><a href="registration.php">Registration</a></li>
 				</ul>
 			</div>
 
@@ -57,23 +55,29 @@ echo "ACCESS GRANTED";
 				}
 				?>
 
-				<form action="handler.php" method="POST" enctype="multipart/form-data">
-					<div>Name: <input value="<?php echo isset($presets['name']) ? $presets['name'] : ''; ?>" placeholder="name here" type="text" id="name" name="name"></div>
-					<div>Age: <input value="<?php echo isset($presets['age']) ? $presets['age'] : ''; ?>" placeholder="age here" ptype="text" id="age" name="age"></div>
-					<div>Comment: <input value="<?php echo isset($presets['comment']) ? $presets['comment'] : ''; ?>" placeholder="comment here" ptype="text" id="comment" name="comment"></div>
-					<div><input type="submit" value="Add Comment"></div>
-				</form>
-				<table>
-					<?php
-					echo "<tr><th>Name</th><th>Comment</th><th>Date</th><th></th></tr>";
-					foreach ($comments as $comment) {
-						print "<tr><td><img src='" . $comment['image_path'] . "'/></td>" .
-						"<td>" . htmlspecialchars($comment['name']) . "</td>" .
-						"<td>" . htmlspecialchars($comment['comment']) . "</td>" .
-						"<td>" . $comment['date_entered'] . "</td><td><a href='delete_comment.php?id=". $comment['id'] . "'>delete</a></td></tr>";
-					}
-					?>
-				</table>
+
+				<form name="commentForm" action="handler.php" method="POST">
+      <div>
+        Leave a comment: <input type="text" name="comment">
+      </div>
+      <div>
+        <input type="submit" name="commentButton" value="Submit">
+      </div>
+      <input type="hidden" name="form" value="comment">
+    </form>
+    <?php
+    $comments = $dao->getComments();
+    echo "<table>";
+    foreach ($comments as $comment) {
+      echo "<tr>";
+      echo "<td>" . htmlspecialchars($comment["comment"]) . "</td>";
+      echo "<td>" . htmlspecialchars($comment["created"]) . "</td>";
+      echo "</tr>";
+    }
+    echo "</table>";
+    ?>
+
+				
 
 				
 			</div>

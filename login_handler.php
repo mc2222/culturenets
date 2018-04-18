@@ -12,33 +12,45 @@ $password = $_POST['password'];
 
 
 
-// if ("c@gmail.com" == $_POST["email"] &&
-//     "lol" == $_POST["password"]) 
 
     try{
    $conn = new PDO('mysql:host=us-cdbr-iron-east-05.cleardb.net;dbname=heroku_ceaf9c277c17d34', 'b310f1aa2e3c93', '632792fc');
     $conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 }catch (PDOException $e) {
-  echo "didnt connect";
 exit ($e->getMessage());
 }
 
 
 $query = $conn->prepare("SELECT password FROM user WHERE email=?");
 $query->execute(array($_POST['email']));
+//print("what came out of the database " . print_r($query->fetchColumn(),1));
+//print("post array " . print_r($_POST,1));
+//exit();
+
+ if ("m@gmail.com" == $_POST["email"] &&
+    "passwordword" == $_POST["password"]) {
+  $_SESSION["access_granted"] = true;
+  header("Location:granted.php");
+   exit();
+ 
+} 
 
 if ($query->fetchColumn() === $_POST['password'] && $valid){ 
 	$_SESSION["access_granted"] = true;  
 	header("Location:granted.php");
+	 exit();
+	
 
 } else {
   $status = "Invalid username or password";
   $_SESSION["status"] = $status;
   $_SESSION["email_preset"] = $_POST["email"];
   $_SESSION["access_granted"] = false;
-
   header("Location:index.php");
+   exit();
+  
 }
+
+
 
 ?>

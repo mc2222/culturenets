@@ -1,13 +1,10 @@
 body{
 
-	#FFFFFF;
+	#f6e8d6;
 	font-family: Palatino, Garamond, Times New Roman;
 	font-family: 'Cinzel Decorative', cursive;
 }
 
-#registrationdiv{
-	background-color: #f6e8d6;
-}
 
 #container{
 	background-color: white;
