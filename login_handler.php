@@ -21,26 +21,28 @@ exit ($e->getMessage());
 }
 
 
-$query = $conn->prepare("SELECT password FROM user WHERE email=?");
-$query->execute(array($_POST['email']));
+//$query = $conn->prepare("SELECT password FROM user WHERE email=?");
+//$query->execute(array($_POST['email']));
+//var_dump($valid);
 //print("what came out of the database " . print_r($query->fetchColumn(),1));
 //print("post array " . print_r($_POST,1));
 //exit();
 
  if ("m@gmail.com" == $_POST["email"] &&
     "passwordword" == $_POST["password"]) {
+
   $_SESSION["access_granted"] = true;
   header("Location:granted.php");
    exit();
- 
 } 
-
-if ($query->fetchColumn() === $_POST['password'] && $valid){ 
+ //echo "fetch column: " . print_r($query->fetchColumn(),1) . "<br/>";
+//echo "POST " .  $_POST['password'] . "<br/>";
+//exit();
+//echo var_dump($valid);
+else if ($query->fetchColumn() === $_POST['password']){ 
 	$_SESSION["access_granted"] = true;  
 	header("Location:granted.php");
-	 exit();
-	
-
+	 exit();	
 } else {
   $status = "Invalid username or password";
   $_SESSION["status"] = $status;

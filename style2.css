@@ -1,13 +1,13 @@
 body{
 
-	#f6e8d6;
+	#FFFFFF;
 	font-family: Palatino, Garamond, Times New Roman;
 	font-family: 'Cinzel Decorative', cursive;
 }
 
 
 #container{
-	background-color: white;
+	background-color: #CFD6DE;
 	width: 800px;
 	margin-left:  auto;
 	margin-right: auto;
@@ -31,7 +31,7 @@ body{
 	margin: 50px;
 }
 #header{
-	background-color: #D6EAF8;
+	background-color: #6FA7EF;
 	color: white;
 	text-align: center;
 }

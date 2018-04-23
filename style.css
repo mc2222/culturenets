@@ -6,11 +6,11 @@ body{
 }
 
 #registrationdiv{
-	background-color: #f6e8d6;
+	background-color: #CFD6DE;
 }
 
 #container{
-	background-color: white;
+	background-color: #BFC3C8;
 	width: 800px;
 	margin-left:  auto;
 	margin-right: auto;
@@ -34,7 +34,7 @@ body{
 	margin: 50px;
 }
 #header{
-	background-color: #D6EAF8;
+	background-color: #6FA7EF;
 	color: white;
 	text-align: center;
 }

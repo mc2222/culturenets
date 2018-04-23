@@ -55,8 +55,10 @@ $dao = new Dao();
 			</div>
 
 			<div id="main">
-
-				<p> Leave your review.
+				<img src="ForestPic.jpeg" width="200" alt="Logo"/>
+				<img src="BoiseAtNight.jpeg" width="200" alt="Logo"/>
+				<img src="FoothillsPic.jpeg" width="200" alt="Logo"/>
+				<p> Leave your review. Log in.
 				 </p>
 
 				<?php
